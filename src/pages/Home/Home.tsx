@@ -1,6 +1,6 @@
 import shell from "@/assets/shell.png";
 import { Button } from "@/components/ui/button";
-import { Pencil } from "lucide-react";
+import { Pencil, Brain } from "lucide-react";
 
 export default function Home() {
     return (
@@ -25,7 +25,7 @@ export default function Home() {
                 </h3>
                 <span className="mt-2">I hear you</span>
             </div>
-            <div className="flex shadow flex-col w-full bg-som-bg p-5 rounded-lg mt-10">
+            <div className="flex shadow flex-col w-full border-2 border-dashed border-som-highlight bg-som-bg p-5 rounded-lg mt-10">
                 <h1 className="font-dynapuff text-4xl font-bold">
                     I am here to answer all of this!
                 </h1>
@@ -39,6 +39,25 @@ export default function Home() {
                     >
                         <Pencil />
                         Take a quiz!
+                    </Button>
+                </div>
+            </div>
+            <div className="flex shadow flex-col w-full bg-som-bg/90 p-5 rounded-lg mt-10">
+                <h1 className="font-dynapuff text-4xl font-bold text-som-text">
+                    Want to know more??
+                </h1>
+                <div className="ml-auto gap-5 flex items-center">
+                    <span className="ml-auto">
+                        Full explanation of the quiz
+                    </span>
+                    <Button
+                        className="ml-auto w-50 h-13"
+                        onClick={() => (window.location.href = "/quiz")}
+                        variant="default"
+                        size="lg"
+                    >
+                        <Brain />
+                        Read the paper
                     </Button>
                 </div>
             </div>

@@ -1,0 +1,96 @@
+[
+    {
+        "id": "1",
+        "question": {
+            "question": "Is your project unique? Never before seen?",
+            "type": "radio",
+            "answers": [
+                { "id": "a", "answer": "Yes", "value": "+3%" },
+                { "id": "b", "answer": "Yes, very", "value": "+7%" },
+                { "id": "c", "answer": "No", "value": "+1%" },
+                {
+                    "id": "d",
+                    "answer": "No, lots of people done similar",
+                    "value": "-4%"
+                }
+            ],
+            "explanation": "The more unique your project is, the more propability that people will vote for you. It's how this works! Examples: https://summer.hackclub.com/projects/1419"
+        }
+    },
+    {
+        "id": "2",
+        "question": {
+            "question": "If your project is not unique, is it better then a similar project?",
+            "type": "radio",
+            "answers": [
+                {
+                    "id": "a",
+                    "answer": "My project is unique",
+                    "value": "ignore"
+                },
+                { "id": "b", "answer": "Yes", "value": "+7%" },
+                { "id": "c", "answer": "No", "value": "-1%" }
+            ],
+            "explanation": "If your project is better then similar projects it boosts your chances to win"
+        }
+    },
+    {
+        "id": "3",
+        "question": {
+            "question": "Is it easy to test your project?",
+            "type": "radio",
+            "answers": [
+                { "id": "a", "answer": "Yes", "value": "+10%" },
+                { "id": "b", "answer": "No", "value": "-2%" },
+                {
+                    "id": "c",
+                    "answer": "No, really hard (installing packages/niche language)",
+                    "value": "-4%"
+                }
+            ],
+            "explanation": "The easiest projects to test are voted more. It's easy to test a web app but not so much a python cli app."
+        }
+    },
+    {
+        "id": "5",
+        "question": {
+            "question": "Is it easy to use?",
+            "type": "radio",
+            "answers": [
+                { "id": "a", "answer": "A baby could use it", "value": "+14%" },
+                {
+                    "id": "b",
+                    "answer": "You need some programming knowledge",
+                    "value": "+17%"
+                },
+                {
+                    "id": "c",
+                    "answer": "You need to be very experienced",
+                    "value": "-1%"
+                }
+            ],
+            "explanation": "Because HackClub is centered around tech savy users, they know how to do stuff well. If the app is too easy to use, it could repell potential users"
+        }
+    },
+    {
+        "id": "4",
+        "question": {
+            "question": "Do you use emojis in devlogs/description?",
+            "type": "radio",
+            "answers": [
+                { "id": "a", "answer": "Yes (1-2)", "value": "ignore" },
+                {
+                    "id": "b",
+                    "answer": "Yes, a lot (3+)",
+                    "value": "-10%"
+                },
+                {
+                    "id": "c",
+                    "answer": "None",
+                    "value": "+1%"
+                }
+            ],
+            "explanation": "AI models tend to put emojis in their output's especially when asked to write a description. Don't use emojis if you dont want other ppl to mistake your work for ai's work"
+        }
+    }
+]

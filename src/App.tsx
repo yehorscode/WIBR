@@ -3,6 +3,7 @@ import "./App.css";
 import Home from "./pages/Home/Home";
 import Layout from "./pages/Layout/Layout";
 import NotFound from "./pages/NotFound/NotFound";
+import Quiz from "./pages/Quiz/Quiz";
 
 function App() {
     return (
@@ -11,6 +12,7 @@ function App() {
                 <Route path="/" element={<Layout />}>
                     <Route path="*" element={<NotFound />} />
                     <Route index element={<Home />} />
+                    <Route path="quiz" element={<Quiz />} />
                 </Route>
             </Routes>
         </BrowserRouter>
