@@ -5,7 +5,7 @@ type ShellScoreContextType = {
     setShells: (n: number) => void;
     addPercent: (percent: number) => void;
     addShells: (amount: number) => void;
-    applyModifier: (modifier: string) => void;
+    applyModifier: (value: number, isPercent: boolean) => void;
 };
 
 const ShellScoreContext = createContext<ShellScoreContextType | undefined>(
@@ -24,48 +24,46 @@ export function ShellScoreProvider({
 }: {
     children: React.ReactNode;
 }) {
-    const [shells, setShells] = useState(0);
+    const [shells, setShells] = useState(100); // Zaczynamy od 100, żeby procenty miały sens
 
     const addPercent = (percent: number) => {
-        setShells((prev) => Math.round(prev + prev * (percent / 100)));
+        console.log(`addPercent: ${percent}%, current shells:`, shells);
+        setShells((prev) => {
+            const result = Math.round(prev + prev * (percent / 100));
+            const final = Math.max(0, result);
+            console.log(`Result: ${prev} + ${prev} * (${percent}/100) = ${result}, final: ${final}`);
+            return final;
+        });
     };
 
     const addShells = (amount: number) => {
-        setShells((prev) => prev + amount);
+        console.log(`addShells: ${amount}, current shells:`, shells);
+        setShells((prev) => {
+            const result = Math.max(0, prev + amount);
+            console.log(`Result: ${prev} + ${amount} = ${result}`);
+            return result;
+        });
     };
 
-    const applyModifier = (modifier: string) => {
-        if (!modifier || modifier.trim().toLowerCase() === "ignore") return;
-        
-        // Sprawdź czy to procent (np. "+20%", "-10%")
-        const percentMatch = modifier.match(/^([+-]\d+)%$/);
-        if (percentMatch) {
-            const percent = parseInt(percentMatch[1], 10);
-            if (!isNaN(percent)) {
-                addPercent(percent);
-                return;
-            }
-        }
-        
-        // Sprawdź czy to wartość bezwzględna (np. "+30", "-5")
-        const absoluteMatch = modifier.match(/^([+-]\d+)$/);
-        if (absoluteMatch) {
-            const amount = parseInt(absoluteMatch[1], 10);
-            if (!isNaN(amount)) {
-                addShells(amount);
-                return;
-            }
+    const applyModifier = (value: number, isPercent: boolean) => {
+        if (value === 0) return;
+        if (isPercent) {
+            addPercent(value);
+        } else {
+            addShells(value);
         }
     };
 
     return (
-        <ShellScoreContext.Provider value={{ 
-            shells, 
-            setShells, 
-            addPercent,
-            addShells,
-            applyModifier
-        }}>
+        <ShellScoreContext.Provider
+            value={{
+                shells,
+                setShells,
+                addPercent,
+                addShells,
+                applyModifier,
+            }}
+        >
             {children}
         </ShellScoreContext.Provider>
     );

@@ -45,7 +45,7 @@
             "question": "Do you have quirky features/easter eggs?",
             "type": "radio",
             "answers": [
-                { "id": "a", "answer": "Yeah a couple", "value": "+20" },
+                { "id": "a", "answer": "Yeah a couple", "value": "+4" },
                 { "id": "b", "answer": "Nah", "value": "ignore" }
             ],
             "explanation": "The more fun features you have the better!"
@@ -93,11 +93,11 @@
             "question": "What age group is your project for??",
             "type": "radio",
             "answers": [
-                { "id": "a", "answer": "10-", "value": "-20" },
-                { "id": "b", "answer": "11-12", "value": "-5" },
-                { "id": "c", "answer": "13-16", "value": "+20" },
-                { "id": "d", "answer": "17-18", "value": "+15" },
-                { "id": "e", "answer": "all", "value": "+30" }
+                { "id": "a", "answer": "10-", "value": "-4" },
+                { "id": "b", "answer": "11-12", "value": "-1" },
+                { "id": "c", "answer": "13-16", "value": "+4" },
+                { "id": "d", "answer": "17-18", "value": "+3" },
+                { "id": "e", "answer": "all", "value": "+6" }
             ],
             "explanation": "Fun fact!: most users in som are age group 14-16, age groups dont really mean anything tho for most projects"
         }

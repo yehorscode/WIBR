@@ -13,17 +13,16 @@ type QuestionProps = {
     explanation?: string;
 };
 
-// Funkcja odwracająca modyfikator (np. "+20%" -> "-20%", "+30" -> "-30")
-function getReverseModifier(modifier: string): string {
-    if (!modifier || modifier === "ignore") return "ignore";
-    
-    if (modifier.startsWith("+")) {
-        return modifier.replace("+", "-");
-    } else if (modifier.startsWith("-")) {
-        return modifier.replace("-", "+");
-    }
-    
-    return modifier;
+
+// Parsuje string typu '+30%', '-20', '+15', 'ignore' na liczbę i flagę procentu
+function parseValue(val: string): { value: number; isPercent: boolean } | null {
+    if (!val || val === "ignore") return null;
+    const match = val.match(/^([+-]?\d+)(%)?$/);
+    if (!match) return null;
+    return {
+        value: Number(match[1]),
+        isPercent: !!match[2],
+    };
 }
 
 export default function Question({
@@ -31,28 +30,27 @@ export default function Question({
     answers,
     explanation,
 }: QuestionProps) {
+
     const { applyModifier } = useShellScore();
     const [selected, setSelected] = useState<string | null>(null);
-    const [lastValue, setLastValue] = useState<string | null>(null);
 
+    // Po zaznaczeniu odpowiedzi nie można już zmienić wyboru
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (selected !== null) return; // zablokuj zmianę po pierwszym wyborze
+
         const val = e.target.value;
-        
-        // Jeśli zmieniono odpowiedź, cofnij poprzedni efekt
-        if (selected !== null && lastValue !== null && lastValue !== "ignore") {
-            applyModifier(getReverseModifier(lastValue));
-        }
-        
         setSelected(val);
-        
+
         const answer = answers.find((a) => a.id === val);
         if (!answer) return;
-        
-        // Zastosuj nową wartość
-        applyModifier(answer.value);
-        
-        // Zapisz wartość, by móc ją zresetować przy zmianie odpowiedzi
-        setLastValue(answer.value);
+
+        const parsed = parseValue(answer.value);
+        if (parsed) {
+            console.log(`Applying: ${parsed.value}${parsed.isPercent ? '%' : ''}`);
+            applyModifier(parsed.value, parsed.isPercent);
+        }
+
+        // lastValue już niepotrzebne
     };
 
     return (
@@ -67,6 +65,7 @@ export default function Question({
                             value={a.id}
                             checked={selected === a.id}
                             onChange={handleChange}
+                            disabled={selected !== null} // blokuje po wyborze
                         />
                         {a.answer}{" "}
                         <span className="text-xs text-som-text/70">

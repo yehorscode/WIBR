@@ -27,6 +27,7 @@ function QuizInner() {
     const [hours, setHours] = useState(0);
     const [minutes, setMinutes] = useState(0);
     const [error, setError] = useState("");
+    const [randomisedMultiplier] = useState(getRandomNumber());
 
     const handleHours = (e: React.ChangeEvent<HTMLInputElement>) => {
         let val = parseInt(e.target.value);
@@ -54,15 +55,17 @@ function QuizInner() {
         setBaseShells(shells);
         setShells(shells);
     };
+    
+    function getRandomNumber(): number {
+        return Math.floor(Math.random() * 4) + 2;
+    }
     return (
         <div className="text-center flex flex-col">
-                {error && (
-                    <div className="text-red-500 text-xs mt-1">{error}</div>
-                )}
+            {error && <div className="text-red-500 text-xs mt-1">{error}</div>}
             <h1 className="font-dynapuff text-4xl font-bold">
                 Let's calculate your shells!
             </h1>
-            <span>There are {questions.length} questions</span>
+            <span>There are {questions.length} questions only</span>
             <div className="mt-10 bg-som-bg p-5 text-left items-center rounded-lg shadow-xl">
                 <h3 className="font-medium font-dynapuff">Input questions:</h3>
                 <div className="flex items-center">
@@ -72,7 +75,9 @@ function QuizInner() {
                         onChange={handleHours}
                         className="w-1/2 border-dashed border-som-highlight border-2 rounded-sm p-1 mt-2"
                     />
-                    <span className="text-sm text-som-text/60 mx-5 mt-1">and</span>
+                    <span className="text-sm text-som-text/60 mx-5 mt-1">
+                        and
+                    </span>
                     <input
                         type="number"
                         placeholder="Minutes"
@@ -100,18 +105,12 @@ function QuizInner() {
                         </p>
                     </TooltipContent>
                 </Tooltip>
-                {/* Optional input for votes, if needed in the future */}
-                {/* <input
-                    type="text"
-                    placeholder="How many votes do you think you'll have?"
-                    className="w-full border-dashed border-som-highlight border-2 rounded-sm p-1 mt-2"
-                />
-                <span className="text-xs text-som-highlight">Optional</span> */}
             </div>
             <div className="mt-10">
                 <h3 className="font-dynapuff text-2xl">Questions:</h3>
                 <span className="text-som-text/80">
-                    Answer responsibly! Don't cheat! Good luck
+                    Answer responsibly! Don't cheat! Good luck <br />
+                    YOU CAN'T CHANGE YOUR ANSWERS
                 </span>
                 <div className="mt-4">
                     {questions.map((q) => (
@@ -126,9 +125,10 @@ function QuizInner() {
                 <div className="mt-8 text-xl font-bold bg-som-bg p-5 rounded">
                     <div className="">
                         Calculated shells:{" "}
-                        <span className="text-som-highlight">{shells}</span>
+                        <span className="text-som-highlight">{shells * randomisedMultiplier}</span>
                     </div>
                     <div className="flex flex-col items-center">
+                        <span className="text-sm opacity-70 text-som-text">Includes a randomised multiplier of 2-5</span>
                         <div className="flex items-center">
                             <div className="text-sm text-som-text/60">
                                 Not accounting for the quiz you may get a
