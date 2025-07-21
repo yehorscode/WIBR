@@ -31,10 +31,10 @@ export default function Layout() {
                     </li>
                     <li className="relative group text-som-text font-nationalpark font-extrabold text-xl">
                         <Link
-                            to="/paper"
+                            to="/how"
                             className="transition-colors block pb-1 z-10"
                         >
-                            Read explanation
+                            How does voting work?
                         </Link>
                         <div
                             className="flex absolute left-0 top-full w-full h-2 bg-som-highlight rounded-2xl opacity-0 z-0 transition-opacity duration-200 group-hover:opacity-100"
