@@ -2,95 +2,104 @@
     {
         "id": "1",
         "question": {
-            "question": "Is your project unique? Never before seen?",
+            "question": "Do you use emojis in descriptions/devlogs?",
             "type": "radio",
             "answers": [
-                { "id": "a", "answer": "Yes", "value": "+3%" },
-                { "id": "b", "answer": "Yes, very", "value": "+7%" },
-                { "id": "c", "answer": "No", "value": "+1%" },
-                {
-                    "id": "d",
-                    "answer": "No, lots of people done similar",
-                    "value": "-4%"
-                }
+                { "id": "a", "answer": "Yes (1-2)", "value": "ignore" },
+                { "id": "b", "answer": "Yes (3+)", "value": "ignore" },
+                { "id": "c", "answer": "No", "value": "ignore" }
             ],
-            "explanation": "The more unique your project is, the more propability that people will vote for you. It's how this works! Examples: https://summer.hackclub.com/projects/1419"
+            "explanation": "There's nothing wrong with emojis, but using them too much makes the text look like ai generated. Especially when verses start with emojis"
         }
     },
     {
         "id": "2",
         "question": {
-            "question": "If your project is not unique, is it better then a similar project?",
+            "question": "Is your project unique?",
             "type": "radio",
             "answers": [
-                {
-                    "id": "a",
-                    "answer": "My project is unique",
-                    "value": "ignore"
-                },
-                { "id": "b", "answer": "Yes", "value": "+7%" },
-                { "id": "c", "answer": "No", "value": "-1%" }
+                { "id": "a", "answer": "Yes", "value": "+70%" },
+                { "id": "b", "answer": "Yes (Never before seen)", "value": "+200%" },
+                { "id": "c", "answer": "No, but mine is better then others", "value": "+30%" },
+                { "id": "d", "answer": "No, and mine is worse the others", "value": "-20%" }
             ],
-            "explanation": "If your project is better then similar projects it boosts your chances to win"
+            "explanation": "The more unique your project the better it is. There is nothing wrong with ideas that are reused but they may get less votes"
         }
     },
     {
         "id": "3",
         "question": {
-            "question": "Is it easy to test your project?",
+            "question": "Is your project easy to test?",
             "type": "radio",
             "answers": [
-                { "id": "a", "answer": "Yes", "value": "+10%" },
-                { "id": "b", "answer": "No", "value": "-2%" },
-                {
-                    "id": "c",
-                    "answer": "No, really hard (installing packages/niche language)",
-                    "value": "-4%"
-                }
+                { "id": "a", "answer": "Yes, i have a demo link", "value": "+40%" },
+                { "id": "b", "answer": "I don't have a demo link but its not hard", "value": "+30%" },
+                { "id": "c", "answer": "It's very hard", "value": "-10%" }
             ],
-            "explanation": "The easiest projects to test are voted more. It's easy to test a web app but not so much a python cli app."
-        }
-    },
-    {
-        "id": "5",
-        "question": {
-            "question": "Is it easy to use?",
-            "type": "radio",
-            "answers": [
-                { "id": "a", "answer": "A baby could use it", "value": "+14%" },
-                {
-                    "id": "b",
-                    "answer": "You need some programming knowledge",
-                    "value": "+17%"
-                },
-                {
-                    "id": "c",
-                    "answer": "You need to be very experienced",
-                    "value": "-1%"
-                }
-            ],
-            "explanation": "Because HackClub is centered around tech savy users, they know how to do stuff well. If the app is too easy to use, it could repell potential users"
+            "explanation": "If you can't quickly see, how the project works. How would you know, if it's good enough to vote on?"
         }
     },
     {
         "id": "4",
         "question": {
-            "question": "Do you use emojis in devlogs/description?",
+            "question": "Do you have quirky features/easter eggs?",
             "type": "radio",
             "answers": [
-                { "id": "a", "answer": "Yes (1-2)", "value": "ignore" },
-                {
-                    "id": "b",
-                    "answer": "Yes, a lot (3+)",
-                    "value": "-10%"
-                },
-                {
-                    "id": "c",
-                    "answer": "None",
-                    "value": "+1%"
-                }
+                { "id": "a", "answer": "Yeah a couple", "value": "+20" },
+                { "id": "b", "answer": "Nah", "value": "ignore" }
             ],
-            "explanation": "AI models tend to put emojis in their output's especially when asked to write a description. Don't use emojis if you dont want other ppl to mistake your work for ai's work"
+            "explanation": "The more fun features you have the better!"
+        }
+    },
+    {
+        "id": "5",
+        "question": {
+            "question": "Is your project fun, to test?",
+            "type": "radio",
+            "answers": [
+                { "id": "a", "answer": "Yes", "value": "+50%" },
+                { "id": "b", "answer": "No", "value": "-20%" }
+            ],
+            "explanation": "DEPENDS ON TYPE OF PROJECT. Example: Games need to be fun. While sites? Not really but could be. But how do you make a database generator (example) project fun? If you made one as a project?"
+        }
+    },
+    {
+        "id": "6",
+        "question": {
+            "question": "Is your project easy to use?",
+            "type": "radio",
+            "answers": [
+                { "id": "a", "answer": "Yes", "value": "+30%" },
+                { "id": "b", "answer": "No", "value": "-150%" }
+            ],
+            "explanation": "User needs to know how to use what you build"
+        }
+    },
+    {
+        "id": "7",
+        "question": {
+            "question": "How many people follow your project?",
+            "type": "radio",
+            "answers": [
+                { "id": "a", "answer": "A couple", "value": "ignore" },
+                { "id": "b", "answer": "None", "value": "ignore" }
+            ],
+            "explanation": "The more people follow you, the more chanches of you getting votes. If they follow you, they are more likely to vote on you when they see your project in the voting page. I dont add points because this value is hard to calculate"
+        }
+    },
+    {
+        "id": "8",
+        "question": {
+            "question": "What age group is your project for??",
+            "type": "radio",
+            "answers": [
+                { "id": "a", "answer": "10-", "value": "-20" },
+                { "id": "b", "answer": "11-12", "value": "-5" },
+                { "id": "c", "answer": "13-16", "value": "+20" },
+                { "id": "d", "answer": "17-18", "value": "+15" },
+                { "id": "e", "answer": "all", "value": "+30" }
+            ],
+            "explanation": "Fun fact!: most users in som are age group 14-16, age groups dont really mean anything tho for most projects"
         }
     }
 ]

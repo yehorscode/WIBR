@@ -13,11 +13,17 @@ type QuestionProps = {
     explanation?: string;
 };
 
-function parsePercent(val: string): number | null {
-    if (val === "ignore") return null;
-    const match = val.match(/([+-]?\d+)%/);
-    if (!match) return null;
-    return parseInt(match[1], 10);
+// Funkcja odwracająca modyfikator (np. "+20%" -> "-20%", "+30" -> "-30")
+function getReverseModifier(modifier: string): string {
+    if (!modifier || modifier === "ignore") return "ignore";
+    
+    if (modifier.startsWith("+")) {
+        return modifier.replace("+", "-");
+    } else if (modifier.startsWith("-")) {
+        return modifier.replace("-", "+");
+    }
+    
+    return modifier;
 }
 
 export default function Question({
@@ -25,30 +31,32 @@ export default function Question({
     answers,
     explanation,
 }: QuestionProps) {
-    const { addPercent } = useShellScore();
+    const { applyModifier } = useShellScore();
     const [selected, setSelected] = useState<string | null>(null);
+    const [lastValue, setLastValue] = useState<string | null>(null);
 
-    const [prevPercent, setPrevPercent] = useState<number | null>(null);
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const val = e.target.value;
+        
+        // Jeśli zmieniono odpowiedź, cofnij poprzedni efekt
+        if (selected !== null && lastValue !== null && lastValue !== "ignore") {
+            applyModifier(getReverseModifier(lastValue));
+        }
+        
         setSelected(val);
+        
         const answer = answers.find((a) => a.id === val);
         if (!answer) return;
-        const percent = parsePercent(answer.value);
-
-        if (prevPercent !== null) {
-            addPercent(-prevPercent);
-        }
-        if (percent !== null) {
-            addPercent(percent);
-            setPrevPercent(percent);
-        } else {
-            setPrevPercent(null);
-        }
+        
+        // Zastosuj nową wartość
+        applyModifier(answer.value);
+        
+        // Zapisz wartość, by móc ją zresetować przy zmianie odpowiedzi
+        setLastValue(answer.value);
     };
 
     return (
-        <div className="mb-6 p-4 border rounded bg-som-bg">
+        <div className="mb-6 p-4 border rounded-md bg-som-bg shadow-md">
             <div className="font-semibold mb-2">{question}</div>
             <div className="flex flex-col gap-1">
                 {answers.map((a) => (
