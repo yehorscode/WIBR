@@ -26,7 +26,7 @@ function QuizInner() {
     const [baseShells, setBaseShells] = useState(0);
     const [hours, setHours] = useState(0);
     const [minutes, setMinutes] = useState(0);
-    const [error, setError] = useState("");
+    const [error] = useState("");
     const [randomisedMultiplier] = useState(getRandomNumber());
 
     const handleHours = (e: React.ChangeEvent<HTMLInputElement>) => {
