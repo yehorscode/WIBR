@@ -52,12 +52,12 @@ export default function Home() {
                     </span>
                     <Button
                         className="ml-auto w-50 h-13"
-                        onClick={() => (window.location.href = "/quiz")}
+                        onClick={() => (window.location.href = "/how")}
                         variant="default"
                         size="lg"
                     >
                         <Brain />
-                        Read the paper
+                        How to ship? Read here!
                     </Button>
                 </div>
             </div>
