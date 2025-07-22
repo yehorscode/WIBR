@@ -7,7 +7,7 @@ import step2 from "@/assets/how/step2.webp";
 import step3 from "@/assets/how/step3.webp";
 import easterneurope from "@/assets/how/eastern_europe.webp";
 import { TimeCalculator } from "./components/time-calculator";
-import { useEffect, useState } from "react";
+import { memo, useEffect, useMemo, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
     AlertDialog,
@@ -21,7 +21,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { WhatCanBuy } from "./components/whatcanbuy";
 
-export default function How() {
+function How() {
     const [loading, setLoading] = useState(true);
     useEffect(() => {
         const timer = setTimeout(() => setLoading(false), 1200);
@@ -49,6 +49,17 @@ export default function How() {
             setShowPopup(false);
         }
     };
+
+    const optimizedChecks = useMemo(
+        () => [
+            { id: "demolink", label: "I have a demo link", value: checks.demolink },
+            { id: "bugfree", label: "My project works bug free", value: checks.bugfree },
+            { id: "gooddescription", label: "I have a good description of my project", value: checks.gooddescription },
+            { id: "githublink", label: "I have a GitHub link", value: checks.githublink },
+            { id: "banner", label: "I have a banner", value: checks.banner },
+        ],
+        [checks]
+    );
 
     if (loading) {
         return (
@@ -164,61 +175,19 @@ export default function How() {
                     <br />
                 </p>
                 <ul className="list-disc ml-6 mb-2">
-                    <li>
-                        <input
-                            type="checkbox"
-                            id="demolink"
-                            checked={checks.demolink}
-                            onChange={handleCheck}
-                        />
-                        <label htmlFor="demolink" className="ml-2">
-                            I have a demo link
-                        </label>
-                    </li>
-                    <li>
-                        <input
-                            type="checkbox"
-                            id="bugfree"
-                            checked={checks.bugfree}
-                            onChange={handleCheck}
-                        />
-                        <label htmlFor="bugfree" className="ml-2">
-                            My project works bug free
-                        </label>
-                    </li>
-                    <li>
-                        <input
-                            type="checkbox"
-                            id="gooddescription"
-                            checked={checks.gooddescription}
-                            onChange={handleCheck}
-                        />
-                        <label htmlFor="gooddescription" className="ml-2">
-                            I have a good description of my project
-                        </label>
-                    </li>
-                    <li>
-                        <input
-                            type="checkbox"
-                            id="githublink"
-                            checked={checks.githublink}
-                            onChange={handleCheck}
-                        />
-                        <label htmlFor="githublink" className="ml-2">
-                            I have a GitHub link
-                        </label>
-                    </li>
-                    <li>
-                        <input
-                            type="checkbox"
-                            id="banner"
-                            checked={checks.banner}
-                            onChange={handleCheck}
-                        />
-                        <label htmlFor="banner" className="ml-2">
-                            I have a banner
-                        </label>
-                    </li>
+                    {optimizedChecks.map((check) => (
+                        <li key={check.id}>
+                            <input
+                                type="checkbox"
+                                id={check.id}
+                                checked={check.value}
+                                onChange={handleCheck}
+                            />
+                            <label htmlFor={check.id} className="ml-2">
+                                {check.label}
+                            </label>
+                        </li>
+                    ))}
                 </ul>
                 {showPopup && (
                     <AlertDialog open={showPopup}>
@@ -264,7 +233,6 @@ export default function How() {
                     <img src={cool} alt="" className="h-25" loading="lazy" />
                     Shipping your project
                 </h3>
-                {/* ...existing code... */}
                 <span>So you made all of that? You are ready to ship!</span>
                 <p className="my-2">
                     Some things you need to know before shipping: <br />
@@ -458,3 +426,7 @@ export default function How() {
         </div>
     );
 }
+
+const MemoizedHow = memo(How);
+export { MemoizedHow as How };
+export default MemoizedHow;

@@ -48,10 +48,10 @@ export function WhatCanBuy() {
                 onChange={(e) => handleInputChange(e.target.value)}
             />
             <button
-                className="mt-2 bg-blue-500 text-white py-1 px-3 rounded"
+                className="mt-2 bg-som-highlight text-white font-dynapuff py-1 px-3 rounded-lg"
                 onClick={calculateItems}
             >
-                Show What I Can Buy
+                Show What I Can Buy (LAGGY WAIT)
             </button>
             {loading && <div className="mt-2">Loading...</div>}
             {!loading && filteredItems.length > 0 && (
