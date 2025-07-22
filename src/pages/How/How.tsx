@@ -6,43 +6,111 @@ import step1 from "@/assets/how/step1.webp";
 import step2 from "@/assets/how/step2.webp";
 import step3 from "@/assets/how/step3.webp";
 import { TimeCalculator } from "./components/time-calculator";
+import { useEffect, useState } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function How() {
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+        const timer = setTimeout(() => setLoading(false), 1200);
+        return () => clearTimeout(timer);
+    }, []);
+
+    if (loading) {
+        return (
+            <div className="p-4">
+                <Skeleton className="w-full h-30 rounded-t rounded-xl mb-20" />
+                <Skeleton className="h-40 w-40 mb-4" />
+                <Skeleton className="h-12 w-1/2 mb-4" />
+                <Skeleton className="h-8 w-1/3 mb-2" />
+                <Skeleton className="h-50 w-60 mb-2" />
+                <Skeleton className="h-6 w-full mb-2" />
+                <Skeleton className="h-96 w-full mb-4" />
+                <Skeleton className="h-8 w-1/2 mb-2" />
+                <Skeleton className="h-6 w-full mb-2" />
+                <Skeleton className="h-96 w-full mb-4" />
+            </div>
+        );
+    }
     return (
         <div className="">
             {/* Top navigation menu */}
             <nav className="sticky top-0 bg-som-bg/80 backdrop-blur-sm z-10 p-4 shadow-sm rounded-2xl transition-all duration-300 rounded-t-none">
                 <h2 className="font-dynapuff text-xl mb-2">Quick Navigation</h2>
                 <ul className="flex flex-wrap gap-4 font-dynapuff underline">
-                    <li><a href="#pre-ship">Pre-ship checks</a></li>
-                    <li><a href="#shipping">Shipping</a></li>
-                    <li><a href="#what-now">What happens now</a></li>
-                    <li><a href="#approved">How to get approved faster</a></li>
-                    <li><a href="#limit-shells">Limit on max shells per project</a></li>
-                    <li><a href="#shopping">What can you buy with shells + calculator</a></li>
+                    <li>
+                        <a href="#pre-ship">Pre-ship checks</a>
+                    </li>
+                    <li>
+                        <a href="#shipping">Shipping</a>
+                    </li>
+                    <li>
+                        <a href="#what-now">What happens now</a>
+                    </li>
+                    <li>
+                        <a href="#approved">How to get approved faster</a>
+                    </li>
+                    <li>
+                        <a href="#limit-shells">
+                            Limit on max shells per project
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#shopping">
+                            What can you buy with shells + calculator
+                        </a>
+                    </li>
                 </ul>
             </nav>
             {/* title */}
             <div className="p-4" id="top">
-                <img src={think} alt="Thinking" className="h-25" loading="lazy" />
+                <img
+                    src={think}
+                    alt="Thinking"
+                    className="h-25"
+                    loading="lazy"
+                />
                 <h1 className="font-dynapuff text-4xl">
                     How does SoM voting work?
                 </h1>
                 <span>Quick explainer and tutorial how to get started</span>
                 <div className="mt-5">
-                    <h3 className="font-dynapuff text-lg">Content of the page:</h3>
+                    <h3 className="font-dynapuff text-lg">
+                        Content of the page:
+                    </h3>
                     <ul className="list-disc ml-6 underline font-dynapuff">
-                        <li><a href="#pre-ship">Pre-ship checks</a></li>
-                        <li><a href="#shipping">Shipping</a></li>
-                        <li><a href="#approved">How to get approved faster</a></li>
-                        <li><a href="#what-now">What happens now</a></li>
-                        <li><a href="#limit-shells">Limit on max shells you get per project</a></li>
-                        <li><a href="#shopping">What can you buy with shells + shopping calculator</a></li>
+                        <li>
+                            <a href="#pre-ship">Pre-ship checks</a>
+                        </li>
+                        <li>
+                            <a href="#shipping">Shipping</a>
+                        </li>
+                        <li>
+                            <a href="#approved">How to get approved faster</a>
+                        </li>
+                        <li>
+                            <a href="#what-now">What happens now</a>
+                        </li>
+                        <li>
+                            <a href="#limit-shells">
+                                Limit on max shells you get per project
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#shopping">
+                                What can you buy with shells + shopping
+                                calculator
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
             {/* How to ship */}
-            <div className="bg-som-bg rounded-md shadow-md p-4" id="shipping" style={{ scrollMarginTop: "150px" }}>
+            <div
+                className="bg-som-bg rounded-md shadow-md p-4"
+                id="shipping"
+                style={{ scrollMarginTop: "150px" }}
+            >
                 <h2 className="font-dynapuff text-3xl mt-6 mb-4">
                     How to ship a project?
                 </h2>
@@ -53,7 +121,13 @@ export default function How() {
                     it? Here is how:
                 </p>
                 {/* Pre-ship checks */}
-                <h3 className="font-black text-2xl mt-4" id="pre-ship" style={{ scrollMarginTop: "150px" }}>Before you ship</h3>
+                <h3
+                    className="font-black text-2xl mt-4"
+                    id="pre-ship"
+                    style={{ scrollMarginTop: "150px" }}
+                >
+                    Before you ship
+                </h3>
                 <p className="">
                     First, assure that you have all this:
                     <br />
@@ -105,11 +179,16 @@ export default function How() {
                 <p className="my-2">
                     Some things you need to know before shipping: <br />
                     1. You cannot reverse a ship once it's shipped! <br />
-                    2. It takes from 5 days to more than a week to get approved <br />
+                    2. It takes from 5 days to more than a week to get approved{" "}
+                    <br />
                     3. MAKE SURE TO DEVLOG ALL NEW CHANGES!! (to sqeeze all the
                     time you have) <br />
                 </p>
-                <div className="" id="shipping-step1" style={{ scrollMarginTop: "150px" }}>
+                <div
+                    className=""
+                    id="shipping-step1"
+                    style={{ scrollMarginTop: "150px" }}
+                >
                     <h3 className="font-black text-2xl mt-4">
                         Step one: click this button
                     </h3>
@@ -125,7 +204,11 @@ export default function How() {
                         your project. Now what's left is go through the form
                     </p>
                 </div>
-                <div className="" id="shipping-step2" style={{ scrollMarginTop: "150px" }}>
+                <div
+                    className=""
+                    id="shipping-step2"
+                    style={{ scrollMarginTop: "150px" }}
+                >
                     <h3 className="font-black text-2xl mt-4">
                         Step two: fill out the form
                     </h3>
@@ -159,24 +242,39 @@ export default function How() {
                     </p>
                 </div>
             </div>
-            <div className="mt-20 p-4" id="what-now" style={{ scrollMarginTop: "150px" }}>
+            <div
+                className="mt-20 p-4"
+                id="what-now"
+                style={{ scrollMarginTop: "150px" }}
+            >
                 <img src={beg} alt="" className="h-25" loading="lazy" />
                 <h1 className="font-dynapuff text-4xl">What happens now?</h1>
                 <p>So when do i get my shells?</p>
             </div>
-            <div className="bg-som-bg rounded-md shadow-md mt-4 p-4" id="shopping" style={{ scrollMarginTop: "150px" }}>
+            <div
+                className="bg-som-bg rounded-md shadow-md mt-4 p-4"
+                id="shopping"
+                style={{ scrollMarginTop: "150px" }}
+            >
                 <p className="">
                     So you shipped a project, congrats! I will guess that this
                     is your first time shipping a project, so i want to guide
                     you throught the basics of voting. <br />
                 </p>
                 <p className="my-4 font-dynapuff text-xl underline">
-                    - <a href="#approved">how to get approved faster</a> <br />
-                    - <a href="#limit-shells">limit on max shells you get per project</a> <br />
+                    - <a href="#approved">how to get approved faster</a> <br />-{" "}
+                    <a href="#limit-shells">
+                        limit on max shells you get per project
+                    </a>{" "}
+                    <br />
                     - what can you buy with shells + shopping calculator <br />
                 </p>
             </div>
-            <div className="mt-4 bg-som-bg p-4 rounded-md shadow-md" id="approved" style={{ scrollMarginTop: "150px" }}>
+            <div
+                className="mt-4 bg-som-bg p-4 rounded-md shadow-md"
+                id="approved"
+                style={{ scrollMarginTop: "150px" }}
+            >
                 <h3 className="font-dynapuff text-2xl ">
                     1. How to get approved faster?
                 </h3>
@@ -189,7 +287,11 @@ export default function How() {
                     you vote the higher you go in the "review list"
                 </p>
             </div>
-            <div className="mt-4 bg-som-bg p-4 rounded-md shadow-md" id="limit-shells" style={{ scrollMarginTop: "150px" }}>
+            <div
+                className="mt-4 bg-som-bg p-4 rounded-md shadow-md"
+                id="limit-shells"
+                style={{ scrollMarginTop: "150px" }}
+            >
                 <h3 className="font-dynapuff text-2xl ">
                     2. Limit on max shells you get per project
                 </h3>
@@ -206,8 +308,9 @@ export default function How() {
                     For example: <br />
                     <div className="ml-4 mt-4">
                         If you spent 1 hour and 20 minutes on a project: the
-                        <u className="ml-1">base</u> shells would be <u>just 1 shell</u>. That
-                        means 30 shells max (pile of stickers) <br />
+                        <u className="ml-1">base</u> shells would be{" "}
+                        <u>just 1 shell</u>. That means 30 shells max (pile of
+                        stickers) <br />
                     </div>
                     <div className="ml-4 mt-4">
                         If you spent 1 hour and 30 minutes (only 10 more!) you
