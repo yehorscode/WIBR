@@ -1,4 +1,4 @@
-import shell from "@/assets/shell.png";
+import shell from "@/assets/shell.webp";
 import { Button } from "@/components/ui/button";
 import { Pencil, Brain } from "lucide-react";
 

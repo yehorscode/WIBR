@@ -30,7 +30,7 @@ export function TimeCalculator() {
         setBaseShells(shells);
     };
     return (
-        <div>
+        <div className="flex flex-col">
             <h3 className="mt-4 font-dynapuff text-lg">
                 Lazy? Use my wonderfull calculator
             </h3>
@@ -51,8 +51,7 @@ export function TimeCalculator() {
                 />
             </div>
             <span className="mt-2">on my wonderful project!</span>
-            <br />
-            <span className="mt-10 font-dynapuff text-lg">
+            <span className="mt-5 font-dynapuff text-lg">
                 You will get{" "}
                 <span className="font-bold">{baseShells}</span> shells minimum and up to{" "}
                 <span className="font-bold">{baseShells*30}</span> shells maximum!

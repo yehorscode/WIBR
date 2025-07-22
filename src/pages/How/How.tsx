@@ -1,18 +1,30 @@
-import think from "@/assets/how/think.png";
-import cool from "@/assets/how/cool.png";
-import beg from "@/assets/how/beg.png";
+import think from "@/assets/how/think.webp";
+import cool from "@/assets/how/cool.webp";
+import beg from "@/assets/how/beg.webp";
 //  tuto images
-import step1 from "@/assets/how/step1.png";
-import step2 from "@/assets/how/step2.png";
-import step3 from "@/assets/how/step3.png";
+import step1 from "@/assets/how/step1.webp";
+import step2 from "@/assets/how/step2.webp";
+import step3 from "@/assets/how/step3.webp";
 import { TimeCalculator } from "./components/time-calculator";
 
 export default function How() {
     return (
         <div className="">
+            {/* Top navigation menu */}
+            <nav className="sticky top-0 bg-som-bg/80 backdrop-blur-sm z-10 p-4 shadow-sm rounded-2xl transition-all duration-300 rounded-t-none">
+                <h2 className="font-dynapuff text-xl mb-2">Quick Navigation</h2>
+                <ul className="flex flex-wrap gap-4 font-dynapuff underline">
+                    <li><a href="#pre-ship">Pre-ship checks</a></li>
+                    <li><a href="#shipping">Shipping</a></li>
+                    <li><a href="#what-now">What happens now</a></li>
+                    <li><a href="#approved">How to get approved faster</a></li>
+                    <li><a href="#limit-shells">Limit on max shells per project</a></li>
+                    <li><a href="#shopping">What can you buy with shells + calculator</a></li>
+                </ul>
+            </nav>
             {/* title */}
-            <div className="p-4">
-                <img src={think} alt="Thinking" className="h-25" />
+            <div className="p-4" id="top">
+                <img src={think} alt="Thinking" className="h-25" loading="lazy" />
                 <h1 className="font-dynapuff text-4xl">
                     How does SoM voting work?
                 </h1>
@@ -20,19 +32,17 @@ export default function How() {
                 <div className="mt-5">
                     <h3 className="font-dynapuff text-lg">Content of the page:</h3>
                     <ul className="list-disc ml-6 underline font-dynapuff">
-                        <li>Pre-ship checks</li>
-                        <li>Shipping</li>
-                        <li>How to get approved faster</li>
-                        <li>What happens now</li>
-                        <li>Limit on max shells you get per project</li>
-                        <li>What can you buy with shells + shopping calculator</li>
+                        <li><a href="#pre-ship">Pre-ship checks</a></li>
+                        <li><a href="#shipping">Shipping</a></li>
+                        <li><a href="#approved">How to get approved faster</a></li>
+                        <li><a href="#what-now">What happens now</a></li>
+                        <li><a href="#limit-shells">Limit on max shells you get per project</a></li>
+                        <li><a href="#shopping">What can you buy with shells + shopping calculator</a></li>
                     </ul>
                 </div>
             </div>
-            {/* navigator */}
-            <div className=""></div>
             {/* How to ship */}
-            <div className="bg-som-bg rounded-md shadow-md p-4">
+            <div className="bg-som-bg rounded-md shadow-md p-4" id="shipping" style={{ scrollMarginTop: "150px" }}>
                 <h2 className="font-dynapuff text-3xl mt-6 mb-4">
                     How to ship a project?
                 </h2>
@@ -43,7 +53,7 @@ export default function How() {
                     it? Here is how:
                 </p>
                 {/* Pre-ship checks */}
-                <h3 className="font-black text-2xl mt-4">Before you ship</h3>
+                <h3 className="font-black text-2xl mt-4" id="pre-ship" style={{ scrollMarginTop: "150px" }}>Before you ship</h3>
                 <p className="">
                     First, assure that you have all this:
                     <br />
@@ -87,7 +97,7 @@ export default function How() {
                 </span>
 
                 {/* Shipping */}
-                <h3 className="font-black text-2xl mt-4">
+                <h3 className="font-black text-2xl mt-4" id="shipping-step">
                     <img src={cool} alt="" className="h-25" loading="lazy" />
                     Shipping your project
                 </h3>
@@ -95,12 +105,11 @@ export default function How() {
                 <p className="my-2">
                     Some things you need to know before shipping: <br />
                     1. You cannot reverse a ship once it's shipped! <br />
-                    2. It takes from 5 days to more than a week to get approved{" "}
-                    <br />
+                    2. It takes from 5 days to more than a week to get approved <br />
                     3. MAKE SURE TO DEVLOG ALL NEW CHANGES!! (to sqeeze all the
                     time you have) <br />
                 </p>
-                <div className="">
+                <div className="" id="shipping-step1" style={{ scrollMarginTop: "150px" }}>
                     <h3 className="font-black text-2xl mt-4">
                         Step one: click this button
                     </h3>
@@ -116,7 +125,7 @@ export default function How() {
                         your project. Now what's left is go through the form
                     </p>
                 </div>
-                <div className="">
+                <div className="" id="shipping-step2" style={{ scrollMarginTop: "150px" }}>
                     <h3 className="font-black text-2xl mt-4">
                         Step two: fill out the form
                     </h3>
@@ -150,24 +159,24 @@ export default function How() {
                     </p>
                 </div>
             </div>
-            <div className="mt-20 p-4">
+            <div className="mt-20 p-4" id="what-now" style={{ scrollMarginTop: "150px" }}>
                 <img src={beg} alt="" className="h-25" loading="lazy" />
                 <h1 className="font-dynapuff text-4xl">What happens now?</h1>
                 <p>So when do i get my shells?</p>
             </div>
-            <div className="bg-som-bg rounded-md shadow-md mt-4 p-4">
+            <div className="bg-som-bg rounded-md shadow-md mt-4 p-4" id="shopping" style={{ scrollMarginTop: "150px" }}>
                 <p className="">
                     So you shipped a project, congrats! I will guess that this
                     is your first time shipping a project, so i want to guide
                     you throught the basics of voting. <br />
                 </p>
                 <p className="my-4 font-dynapuff text-xl underline">
-                    - how to get approved faster <br />
-                    - limit on max shells you get per project <br />
+                    - <a href="#approved">how to get approved faster</a> <br />
+                    - <a href="#limit-shells">limit on max shells you get per project</a> <br />
                     - what can you buy with shells + shopping calculator <br />
                 </p>
             </div>
-            <div className="mt-4 bg-som-bg p-4 rounded-md shadow-md">
+            <div className="mt-4 bg-som-bg p-4 rounded-md shadow-md" id="approved" style={{ scrollMarginTop: "150px" }}>
                 <h3 className="font-dynapuff text-2xl ">
                     1. How to get approved faster?
                 </h3>
@@ -180,7 +189,7 @@ export default function How() {
                     you vote the higher you go in the "review list"
                 </p>
             </div>
-            <div className="mt-4 bg-som-bg p-4 rounded-md shadow-md">
+            <div className="mt-4 bg-som-bg p-4 rounded-md shadow-md" id="limit-shells" style={{ scrollMarginTop: "150px" }}>
                 <h3 className="font-dynapuff text-2xl ">
                     2. Limit on max shells you get per project
                 </h3>
@@ -188,24 +197,24 @@ export default function How() {
                     To prevent oligarchs from getting the shells (and cheaters
                     who have 10 children)
                 </p>
-                <p>
+                <div>
                     You can only get a <u>max multiplier of 30x</u> <br />
                     That means you can only get 30x base shells. <br />
                     "Base shells" is the term i use to describe minimum amount
                     of shells. It get's calculated by rounding the time you
                     spent on your project up. <br />
                     For example: <br />
-                    <p className="ml-4 mt-4">
+                    <div className="ml-4 mt-4">
                         If you spent 1 hour and 20 minutes on a project: the
                         <u className="ml-1">base</u> shells would be <u>just 1 shell</u>. That
                         means 30 shells max (pile of stickers) <br />
-                    </p>
-                    <p className="ml-4 mt-4">
+                    </div>
+                    <div className="ml-4 mt-4">
                         If you spent 1 hour and 30 minutes (only 10 more!) you
                         would get 2 base shells. That means 60 shells max
                         (that's a whole logic analyzer) <br />
-                    </p>
-                </p>
+                    </div>
+                </div>
                 <TimeCalculator />
             </div>
         </div>
