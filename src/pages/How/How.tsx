@@ -5,9 +5,21 @@ import beg from "@/assets/how/beg.webp";
 import step1 from "@/assets/how/step1.webp";
 import step2 from "@/assets/how/step2.webp";
 import step3 from "@/assets/how/step3.webp";
+import easterneurope from "@/assets/how/eastern_europe.webp";
 import { TimeCalculator } from "./components/time-calculator";
 import { useEffect, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 export default function How() {
     const [loading, setLoading] = useState(true);
@@ -15,6 +27,28 @@ export default function How() {
         const timer = setTimeout(() => setLoading(false), 1200);
         return () => clearTimeout(timer);
     }, []);
+
+    const [checks, setChecks] = useState({
+        demolink: false,
+        bugfree: false,
+        gooddescription: false,
+        githublink: false,
+        banner: false,
+    });
+    const [showPopup, setShowPopup] = useState(false);
+    const [showEasternEgg, setShowEasternEgg] = useState(false);
+
+    const handleCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { id, checked } = e.target;
+        const newChecks = { ...checks, [id]: checked };
+        setChecks(newChecks);
+        // Sprawdź czy wszystkie są zaznaczone
+        if (Object.values(newChecks).every(Boolean)) {
+            setShowPopup(true);
+        } else {
+            setShowPopup(false);
+        }
+    };
 
     if (loading) {
         return (
@@ -34,10 +68,9 @@ export default function How() {
     }
     return (
         <div className="">
-            {/* Top navigation menu */}
-            <nav className="sticky top-0 bg-som-bg/80 backdrop-blur-sm z-10 p-4 shadow-sm rounded-2xl transition-all duration-300 rounded-t-none">
+            <nav className="sticky top-0 bg-som-bg/80 backdrop-blur-sm z-10 p-4 shadow-sm rounded-2xl rounded-t-none mb-10">
                 <h2 className="font-dynapuff text-xl mb-2">Quick Navigation</h2>
-                <ul className="flex flex-wrap gap-4 font-dynapuff underline">
+                <ul className="flex flex-wrap gap-4 font-dynapuff underline ">
                     <li>
                         <a href="#pre-ship">Pre-ship checks</a>
                     </li>
@@ -134,47 +167,106 @@ export default function How() {
                 </p>
                 <ul className="list-disc ml-6 mb-2">
                     <li>
-                        <input type="checkbox" id="demolink" />
+                        <input
+                            type="checkbox"
+                            id="demolink"
+                            checked={checks.demolink}
+                            onChange={handleCheck}
+                        />
                         <label htmlFor="demolink" className="ml-2">
                             I have a demo link
                         </label>
                     </li>
                     <li>
-                        <input type="checkbox" id="bugfree" />
+                        <input
+                            type="checkbox"
+                            id="bugfree"
+                            checked={checks.bugfree}
+                            onChange={handleCheck}
+                        />
                         <label htmlFor="bugfree" className="ml-2">
                             My project works bug free
                         </label>
                     </li>
                     <li>
-                        <input type="checkbox" id="gooddescription" />
+                        <input
+                            type="checkbox"
+                            id="gooddescription"
+                            checked={checks.gooddescription}
+                            onChange={handleCheck}
+                        />
                         <label htmlFor="gooddescription" className="ml-2">
                             I have a good description of my project
                         </label>
                     </li>
                     <li>
-                        <input type="checkbox" id="githublink" />
-                        <label htmlFor="vehicle4" className="ml-2">
+                        <input
+                            type="checkbox"
+                            id="githublink"
+                            checked={checks.githublink}
+                            onChange={handleCheck}
+                        />
+                        <label htmlFor="githublink" className="ml-2">
                             I have a GitHub link
                         </label>
                     </li>
                     <li>
-                        <input type="checkbox" id="banner" />
+                        <input
+                            type="checkbox"
+                            id="banner"
+                            checked={checks.banner}
+                            onChange={handleCheck}
+                        />
                         <label htmlFor="banner" className="ml-2">
                             I have a banner
                         </label>
                     </li>
                 </ul>
+                {showPopup && (
+                    <AlertDialog open={showPopup}>
+                        <AlertDialogContent>
+                            <AlertDialogHeader>
+                                <AlertDialogTitle>
+                                    Wow, you actually filled out the form
+                                </AlertDialogTitle>
+                                <AlertDialogDescription>
+                                    So now you can ship your project propably. I
+                                    reccomend having atleast 10 hours to get
+                                    actually good payouts.{" "}
+                                    <u>
+                                        We totally didn't send your data to the
+                                        Chinese CCP
+                                    </u>{" "}
+                                    Don't read the privacy policy We don't have
+                                    one. Congrat's on trying to ship ur project
+                                </AlertDialogDescription>
+                            </AlertDialogHeader>
+                            <AlertDialogFooter>
+                                <AlertDialogCancel
+                                    onClick={() => setShowPopup(false)}
+                                >
+                                    Cancel
+                                </AlertDialogCancel>
+                                <AlertDialogAction
+                                    onClick={() => setShowPopup(false)}
+                                >
+                                    Ok, thanks
+                                </AlertDialogAction>
+                            </AlertDialogFooter>
+                        </AlertDialogContent>
+                    </AlertDialog>
+                )}
                 <span>
                     Important! You <b>need</b> to have a README.md file! If it's
                     empty you will get rejected! Quickly explain what the
                     project is and how can you run it inside
                 </span>
-
                 {/* Shipping */}
                 <h3 className="font-black text-2xl mt-4" id="shipping-step">
                     <img src={cool} alt="" className="h-25" loading="lazy" />
                     Shipping your project
                 </h3>
+                {/* ...existing code... */}
                 <span>So you made all of that? You are ready to ship!</span>
                 <p className="my-2">
                     Some things you need to know before shipping: <br />
@@ -247,10 +339,46 @@ export default function How() {
                 id="what-now"
                 style={{ scrollMarginTop: "150px" }}
             >
-                <img src={beg} alt="" className="h-25" loading="lazy" />
+                {/* easterN egg */}
+                <img
+                    src={beg}
+                    alt=""
+                    className="h-25 hover:cursor-pointer hover:shadow-2xl"
+                    loading="lazy"
+                    onClick={() => setShowEasternEgg(true)}
+                />
                 <h1 className="font-dynapuff text-4xl">What happens now?</h1>
                 <p>So when do i get my shells?</p>
             </div>
+            {showEasternEgg && (
+                <AlertDialog open={showEasternEgg}>
+                    <AlertDialogContent>
+                        <AlertDialogHeader>
+                            <AlertDialogTitle>
+                                This is an eastern egg
+                            </AlertDialogTitle>
+                            <AlertDialogDescription>
+                                <img src={easterneurope} alt="" height={100} />
+                                Welcome to eastern europe! <br />
+                                If you don't behave well:{" "}
+                                <i>We will send you here</i>
+                            </AlertDialogDescription>
+                        </AlertDialogHeader>
+                        <AlertDialogFooter>
+                            <AlertDialogCancel
+                                onClick={() => setShowEasternEgg(false)}
+                            >
+                                Get tf out
+                            </AlertDialogCancel>
+                            <AlertDialogAction
+                                onClick={() => setShowEasternEgg(false)}
+                            >
+                                Im scared
+                            </AlertDialogAction>
+                        </AlertDialogFooter>
+                    </AlertDialogContent>
+                </AlertDialog>
+            )}
             <div
                 className="bg-som-bg rounded-md shadow-md mt-4 p-4"
                 id="shopping"
