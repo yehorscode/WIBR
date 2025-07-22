@@ -1,0 +1,337 @@
+[
+  {
+    "name": "Pile of Stickers",
+    "image": null,
+    "cost": 25
+  },
+  {
+    "name": "TIS-100",
+    "image": null,
+    "cost": 32
+  },
+  {
+    "name": "64GB USB Drive",
+    "image": null,
+    "cost": 40
+  },
+  {
+    "name": "Domain grant",
+    "image": null,
+    "cost": 45
+  },
+  {
+    "name": "Logic Analyzer",
+    "image": null,
+    "cost": 50
+  },
+  {
+    "name": "Pico-8 License",
+    "image": null,
+    "cost": 60
+  },
+  {
+    "name": "128GB USB Drive",
+    "image": null,
+    "cost": 65
+  },
+  {
+    "name": "Hot Glue Gun",
+    "image": null,
+    "cost": 66
+  },
+  {
+    "name": "Voxatron License",
+    "image": null,
+    "cost": 80
+  },
+  {
+    "name": "Allen Wrench",
+    "image": null,
+    "cost": 92
+  },
+  {
+    "name": "Raspberry Pi Zero 2 W",
+    "image": null,
+    "cost": 100
+  },
+  {
+    "name": "Digital Calipers",
+    "image": null,
+    "cost": 102
+  },
+  {
+    "name": "20 bucks in Framework credit",
+    "image": null,
+    "cost": 103
+  },
+  {
+    "name": "sketch from msw",
+    "image": null,
+    "cost": 110
+  },
+  {
+    "name": "256GB microSD card + adapter",
+    "image": null,
+    "cost": 110
+  },
+  {
+    "name": "256GB USB Drive",
+    "image": null,
+    "cost": 120
+  },
+  {
+    "name": "USB C Cable + Wall Adapter",
+    "image": null,
+    "cost": 122
+  },
+  {
+    "name": "Orpheus Pico! (preorder)",
+    "image": null,
+    "cost": 125
+  },
+  {
+    "name": "shapez 2",
+    "image": null,
+    "cost": 137
+  },
+  {
+    "name": "Pinecil",
+    "image": null,
+    "cost": 144
+  },
+  {
+    "name": "CH341A Programmer",
+    "image": null,
+    "cost": 147
+  },
+  {
+    "name": "Cat Printer",
+    "image": null,
+    "cost": 155
+  },
+  {
+    "name": "25 bucks in IKEA credit",
+    "image": null,
+    "cost": 170
+  },
+  {
+    "name": "Factorio",
+    "image": null,
+    "cost": 175
+  },
+  {
+    "name": "Lexaloffle Games bundle",
+    "image": null,
+    "cost": 175
+  },
+  {
+    "name": "Brother Label Maker",
+    "image": null,
+    "cost": 180
+  },
+  {
+    "name": "Qiyi XMD XT3 speedcube",
+    "image": null,
+    "cost": 182
+  },
+  {
+    "name": "Smolhaj",
+    "image": null,
+    "cost": 211
+  },
+  {
+    "name": "Squishmallow",
+    "image": null,
+    "cost": 220
+  },
+  {
+    "name": "Dupont Crimping Tool Kit",
+    "image": null,
+    "cost": 237
+  },
+  {
+    "name": "Proxmark 3 Easy",
+    "image": null,
+    "cost": 250
+  },
+  {
+    "name": "Yubikey USB-C",
+    "image": null,
+    "cost": 330
+  },
+  {
+    "name": "Yubikey USB-A",
+    "image": null,
+    "cost": 350
+  },
+  {
+    "name": "Waveshare 7.5inch E-Ink Display",
+    "image": null,
+    "cost": 427
+  },
+  {
+    "name": "Baofeng UV-5R (2 pack)",
+    "image": null,
+    "cost": 448
+  },
+  {
+    "name": "min(amame) Parts Kit",
+    "image": null,
+    "cost": 460
+  },
+  {
+    "name": "Seagate 2TB external HDD",
+    "image": null,
+    "cost": 492
+  },
+  {
+    "name": "Logitech MX Master 3S",
+    "image": null,
+    "cost": 620
+  },
+  {
+    "name": "Raspberry Pi 5",
+    "image": null,
+    "cost": 657
+  },
+  {
+    "name": "Thermal Imager",
+    "image": null,
+    "cost": 665
+  },
+  {
+    "name": "K4 desktop laser engraver",
+    "image": null,
+    "cost": 750
+  },
+  {
+    "name": "head(amame) Parts Kit",
+    "image": null,
+    "cost": 775
+  },
+  {
+    "name": "Logitech G Pro X Superlight",
+    "image": null,
+    "cost": 775
+  },
+  {
+    "name": "Glasgow Interface Explorer",
+    "image": null,
+    "cost": 812
+  },
+  {
+    "name": "XPPen Deco Pro MW",
+    "image": null,
+    "cost": 820
+  },
+  {
+    "name": "Flipper Zero",
+    "image": null,
+    "cost": 950
+  },
+  {
+    "name": "Bambu A1 mini Printer",
+    "image": null,
+    "cost": 1125
+  },
+  {
+    "name": "Cricut Explore 3",
+    "image": null,
+    "cost": 1125
+  },
+  {
+    "name": "Playdate",
+    "image": null,
+    "cost": 1390
+  },
+  {
+    "name": "100MHZ Oscilloscope",
+    "image": null,
+    "cost": 1632
+  },
+  {
+    "name": "$500 in Amp credit",
+    "image": null,
+    "cost": 1750
+  },
+  {
+    "name": "Bambu Labs A1",
+    "image": null,
+    "cost": 1750
+  },
+  {
+    "name": "Nebula.tv Lifetime subscription",
+    "image": null,
+    "cost": 1800
+  },
+  {
+    "name": "iPad + Apple Pencil",
+    "image": null,
+    "cost": 3400
+  },
+  {
+    "name": "M4 Mac Mini",
+    "image": null,
+    "cost": 4050
+  },
+  {
+    "name": "Framework Laptop 12",
+    "image": null,
+    "cost": 4499
+  },
+  {
+    "name": "13-inch M4 MacBook Air",
+    "image": null,
+    "cost": 5612
+  },
+  {
+    "name": "Prusa MK4S 3D Printer",
+    "image": null,
+    "cost": 6000
+  },
+  {
+    "name": "MacBook Pro",
+    "image": null,
+    "cost": 12665
+  },
+  {
+    "name": "Spider",
+    "image": null,
+    "cost": 5
+  },
+  {
+    "name": "Graphic design is my passion",
+    "image": null,
+    "cost": 10
+  },
+  {
+    "name": "Summer of Making Blue",
+    "image": null,
+    "cost": 40
+  },
+  {
+    "name": "Sunglasses",
+    "image": null,
+    "cost": 100
+  },
+  {
+    "name": "Pocket Watcher",
+    "image": null,
+    "cost": 100
+  },
+  {
+    "name": "Offshore Bank Account",
+    "image": null,
+    "cost": 150
+  },
+  {
+    "name": "Gold Verified",
+    "image": null,
+    "cost": 160
+  },
+  {
+    "name": "I am Rich",
+    "image": null,
+    "cost": 1000
+  }
+]

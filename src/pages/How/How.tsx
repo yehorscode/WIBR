@@ -18,8 +18,8 @@ import {
     AlertDialogFooter,
     AlertDialogHeader,
     AlertDialogTitle,
-    AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { WhatCanBuy } from "./components/whatcanbuy";
 
 export default function How() {
     const [loading, setLoading] = useState(true);
@@ -89,9 +89,7 @@ export default function How() {
                         </a>
                     </li>
                     <li>
-                        <a href="#shopping">
-                            What can you buy with shells + calculator
-                        </a>
+                        <a href="#shop-items">What can i buy with shells?</a>
                     </li>
                 </ul>
             </nav>
@@ -447,6 +445,15 @@ export default function How() {
                     </div>
                 </div>
                 <TimeCalculator />
+            </div>
+            <div
+                className="mt-4 bg-som-bg p-4 rounded-md shadow-md"
+                id="shop-items"
+                style={{ scrollMarginTop: "150px" }}
+            >
+                <h3 className="font-dynapuff text-2xl ">3. What can i buy?</h3>
+                <p>I have x shells what can i buy with it? Here's what</p>
+                <WhatCanBuy />
             </div>
         </div>
     );
