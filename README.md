@@ -31,9 +31,9 @@ This site can:
 - be styled like som
 
 # Tech stack!
-I used Vite + React + TypeScript
-And brains
-And ai
-And Shadcn/Ui
-And Tailwind
-And tea drink
+I used Vite + React + TypeScript \n
+And brains \n
+And ai \n
+And Shadcn/Ui \n
+And Tailwind \n
+And tea drink \n
