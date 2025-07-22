@@ -22,12 +22,12 @@ export default function Quiz() {
 
 function QuizInner() {
     const questions = getAllQuestions();
-    const { shells, setShells } = useShellScore();
-    const [baseShells, setBaseShells] = useState(0);
+    const { shells, baseShells, setBaseShells } = useShellScore();
     const [hours, setHours] = useState(0);
     const [minutes, setMinutes] = useState(0);
     const [error] = useState("");
-    const [randomisedMultiplier] = useState(getRandomNumber());
+    const [multiplier, setMultiplier] = useState<number | null>(null);
+    const [rolled, setRolled] = useState(false);
 
     const handleHours = (e: React.ChangeEvent<HTMLInputElement>) => {
         let val = parseInt(e.target.value);
@@ -39,9 +39,7 @@ function QuizInner() {
         if (min > 59) min = 59;
         let totalHours = val;
         if (min >= 30) totalHours += 1;
-        const shells = totalHours;
-        setBaseShells(shells);
-        setShells(shells);
+        setBaseShells(totalHours);
     };
 
     const handleMinutes = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -51,14 +49,19 @@ function QuizInner() {
         setMinutes(val);
         let totalHours = hours;
         if (val >= 30) totalHours += 1;
-        const shells = totalHours;
-        setBaseShells(shells);
-        setShells(shells);
+        setBaseShells(totalHours);
     };
     
-    function getRandomNumber(): number {
-        return Math.floor(Math.random() * 4) + 2;
+    function rollMultiplier(): number {
+        return Math.floor(Math.random() * 3) + 2;
     }
+    const handleRoll = () => {
+        if (!rolled) {
+            setMultiplier(rollMultiplier());
+            setRolled(true);
+        }
+    };
+
     return (
         <div className="text-center flex flex-col">
             {error && <div className="text-red-500 text-xs mt-1">{error}</div>}
@@ -116,6 +119,7 @@ function QuizInner() {
                     {questions.map((q) => (
                         <Question
                             key={q.id}
+                            questionId={q.id}
                             question={q.question.question}
                             answers={q.question.answers}
                             explanation={q.question.explanation}
@@ -123,9 +127,24 @@ function QuizInner() {
                     ))}
                 </div>
                 <div className="mt-8 text-xl font-bold bg-som-bg p-5 rounded">
-                    <div className="">
-                        Calculated shells:{" "}
-                        <span className="text-som-highlight">{shells * randomisedMultiplier}</span>
+                    <div className="flex flex-col items-center gap-2">
+                        <div>
+                            Calculated shells: {" "}
+                            <span className="text-som-highlight">{shells}</span>
+                        </div>
+                        <button
+                            className="mt-2 px-4 py-1 bg-som-highlight text-white rounded disabled:opacity-50"
+                            onClick={handleRoll}
+                            disabled={rolled}
+                        >
+                            {rolled ? "Multiplier Rolled" : "Roll Multiplier"}
+                        </button>
+                        {rolled && multiplier && (
+                            <div className="mt-2">
+                                <span className="text-som-text/80">With multiplier ({multiplier}x): </span>
+                                <span className="text-som-highlight">{shells * multiplier}</span>
+                            </div>
+                        )}
                     </div>
                     <div className="flex flex-col items-center">
                         <span className="text-sm opacity-70 text-som-text">Includes a randomised multiplier of 2-5</span>

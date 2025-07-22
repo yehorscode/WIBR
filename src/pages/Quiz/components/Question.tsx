@@ -8,6 +8,7 @@ type Answer = {
 };
 
 type QuestionProps = {
+    questionId: string;
     question: string;
     answers: Answer[];
     explanation?: string;
@@ -26,31 +27,32 @@ function parseValue(val: string): { value: number; isPercent: boolean } | null {
 }
 
 export default function Question({
+    questionId,
     question,
     answers,
     explanation,
 }: QuestionProps) {
 
-    const { applyModifier } = useShellScore();
+    const { setModifierForQuestion } = useShellScore();
     const [selected, setSelected] = useState<string | null>(null);
 
     // Po zaznaczeniu odpowiedzi nie można już zmienić wyboru
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (selected !== null) return; // zablokuj zmianę po pierwszym wyborze
-
         const val = e.target.value;
         setSelected(val);
 
         const answer = answers.find((a) => a.id === val);
-        if (!answer) return;
+        if (!answer) {
+            setModifierForQuestion(questionId, 0, false); // Remove modifier if no answer
+            return;
+        }
 
         const parsed = parseValue(answer.value);
         if (parsed) {
-            console.log(`Applying: ${parsed.value}${parsed.isPercent ? '%' : ''}`);
-            applyModifier(parsed.value, parsed.isPercent);
+            setModifierForQuestion(questionId, parsed.value, parsed.isPercent);
+        } else {
+            setModifierForQuestion(questionId, 0, false); // Remove modifier if 'ignore' or invalid
         }
-
-        // lastValue już niepotrzebne
     };
 
     return (
@@ -65,7 +67,6 @@ export default function Question({
                             value={a.id}
                             checked={selected === a.id}
                             onChange={handleChange}
-                            disabled={selected !== null} // blokuje po wyborze
                         />
                         {a.answer}{" "}
                         <span className="text-xs text-som-text/70">
