@@ -142,7 +142,7 @@ function QuizInner() {
                         {rolled && multiplier && (
                             <div className="mt-2">
                                 <span className="text-som-text/80">With multiplier ({multiplier}x): </span>
-                                <span className="text-som-highlight">{shells * multiplier}</span>
+                                <span className="text-som-highlight">{Math.round(shells * multiplier)}</span>
                             </div>
                         )}
                     </div>
