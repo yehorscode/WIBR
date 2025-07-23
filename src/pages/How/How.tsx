@@ -241,6 +241,7 @@ function How() {
                     <br />
                     3. MAKE SURE TO DEVLOG ALL NEW CHANGES!! (to sqeeze all the
                     time you have) <br />
+                    <i>4. If you use ai in your project, people may not like it and not vote for it</i>
                 </p>
                 <div
                     className=""

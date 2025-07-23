@@ -53,7 +53,7 @@ function QuizInner() {
     };
     
     function rollMultiplier(): number {
-        return Math.random() * 0.8 + 1.5;
+        return Math.round((Math.random() * 0.8 + 1.3) * 10) / 10;
     }
     const handleRoll = () => {
         if (!rolled) {
@@ -147,7 +147,7 @@ function QuizInner() {
                         )}
                     </div>
                     <div className="flex flex-col items-center">
-                        <span className="text-sm opacity-70 text-som-text">Includes a randomised multiplier of 2-5</span>
+                        <span className="text-sm opacity-70 text-som-text">Includes a randomised multiplier of 1.8 - 2.1</span>
                         <div className="flex items-center">
                             <div className="text-sm text-som-text/60">
                                 Not accounting for the quiz you may get a
