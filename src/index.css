@@ -126,10 +126,10 @@
   }
   body {
     @apply bg-background text-foreground;
-    background-image: url("./assets/background.svg");
+    background-image: url("./assets/background.png");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: right center;
+    background-position: right bottom;
     min-height: 100vh;
   }
 }

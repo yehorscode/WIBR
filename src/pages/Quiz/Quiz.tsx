@@ -53,7 +53,7 @@ function QuizInner() {
     };
     
     function rollMultiplier(): number {
-        return Math.floor(Math.random() * 3) + 2;
+        return Math.random() * 0.8 + 1.5;
     }
     const handleRoll = () => {
         if (!rolled) {
